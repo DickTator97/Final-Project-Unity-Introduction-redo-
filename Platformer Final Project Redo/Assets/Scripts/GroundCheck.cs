@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Ground_Check : MonoBehaviour
+//new project Script
+public class GroundCheck : MonoBehaviour
 {
     public bool IsGrounded;
     private void OnTriggerEnter(Collider other)
@@ -10,6 +10,7 @@ public class Ground_Check : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             IsGrounded = true;
+            Debug.Log("Is Jumping");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -17,7 +18,7 @@ public class Ground_Check : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             IsGrounded = false;
-            Debug.Log("קופץ מעל הפופיק");
+            Debug.Log("Is Not Jumping");
         }
     }
 }

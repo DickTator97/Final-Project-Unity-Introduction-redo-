@@ -1,14 +1,14 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 public class Player_Controller : MonoBehaviour
+//new project Script
 {
     //private int HP;
     //private int CoinCounter;
 
-    float horizontal;
-    float vertical;
-    public float velocityMultiplier;
     public Rigidbody rb;
+    private float horizontal;
+    private float vertical;
+    public float velocityMultiplier;
 
     Vector3 Velocity;
     public float RotationSpeed;
@@ -17,8 +17,8 @@ public class Player_Controller : MonoBehaviour
     //AudioSource jumpsound;
     //public  GroundCheck m_GroundCheck;
 
-    public Ground_Check M_GroundCheck;
-  
+    public GroundCheck M_GroundCheck;
+
     Vector3 RotateTowards;
 
     // ADD U.I To Coin Counter
@@ -27,7 +27,6 @@ public class Player_Controller : MonoBehaviour
         // player jumping sound
         rb = GetComponent<Rigidbody>();
         //jumpsound = GetComponent<AudioSource>();
-
 
     }
     private void Update()
@@ -44,27 +43,25 @@ public class Player_Controller : MonoBehaviour
             Debug.Log("Is Jumping");
         }
         
-        // fix Jump to not work while in air
+       // fix Jump to not work while in air
 
-        if (horizontal != 0 || vertical != 0)
-        {
-            RotateTowards = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            if (horizontal != 0 || vertical != 0)
+            {
+                RotateTowards = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
-            transform.forward = Vector3.MoveTowards(transform.forward, RotateTowards, Time.deltaTime * 50);
-           
-            Debug.Log("Is Moving");
-        }
+                transform.forward = Vector3.MoveTowards(transform.forward, RotateTowards, Time.deltaTime * 50);
+
+                Debug.Log("Is Moving");
+            }
 
     }
 
     private void FixedUpdate()
     {
 
-
         // player jumping
         Velocity = new Vector3(horizontal * velocityMultiplier, rb.velocity.y, vertical * velocityMultiplier);
-        
-       
+
         if (IsJump)
         {
             Velocity.y += JumpForce;
@@ -73,9 +70,9 @@ public class Player_Controller : MonoBehaviour
 
         }
         rb.velocity = Velocity;
-      
-      
 
+    //rb.AddForce(0,0,2000*Time.DeltaTime)
+    
     }
 
     // coin pickup
@@ -83,50 +80,50 @@ public class Player_Controller : MonoBehaviour
 
     //public void OnTriggerEnter(Collider other)
     //{
-        //if (other.CompareTag("Coin"))
-        //{
+    //if (other.CompareTag("Coin"))
+    //{
 
-        //    // trigger picked coin animation
-        //    other.GetComponent<Animator>().SetTrigger("CoinPicked");
-        //    // play coin pickup SFX
-        //    other.GetComponent<AudioSource>().Play();
+    //    // trigger picked coin animation
+    //    other.GetComponent<Animator>().SetTrigger("CoinPicked");
+    //    // play coin pickup SFX
+    //    other.GetComponent<AudioSource>().Play();
 
-        //    //Destroy Game Objectt(Coin)
-        //    other.GetComponent<SphereCollider>().enabled = false;
+    //    //Destroy Game Objectt(Coin)
+    //    other.GetComponent<SphereCollider>().enabled = false;
 
-        //    // increases the value of Coin Counter By One
-        //    //if (CoinCounter >= 0)
-        //    //{
-
-
-        //    //    CoinCounter++;
+    //    // increases the value of Coin Counter By One
+    //    //if (CoinCounter >= 0)
+    //    //{
 
 
-        //    //}
+    //    //    CoinCounter++;
 
 
-        //}
-        //Reapeat process with Mega Coin
-        //else if (other.CompareTag("Mega Coin"))
-        //{
+    //    //}
 
 
-        //    other.GetComponent<AudioSource>().Play();
-
-        //    other.GetComponent<Animator>().SetTrigger("CoinPicked");
-
-        //    other.GetComponent<SphereCollider>().enabled = false;
-
-        //    //Reapets Process But Give an Additional Bonus To Coin Count
-        //    //if (CoinCounter >= 0)
-        //    //{
+    //}
+    //Reapeat process with Mega Coin
+    //else if (other.CompareTag("Mega Coin"))
+    //{
 
 
-        //    //    CoinCounter += 100;
+    //    other.GetComponent<AudioSource>().Play();
+
+    //    other.GetComponent<Animator>().SetTrigger("CoinPicked");
+
+    //    other.GetComponent<SphereCollider>().enabled = false;
+
+    //    //Reapets Process But Give an Additional Bonus To Coin Count
+    //    //if (CoinCounter >= 0)
+    //    //{
 
 
-        //    //}
-        //}
+    //    //    CoinCounter += 100;
+
+
+    //    //}
+    //}
 
     //}
 
