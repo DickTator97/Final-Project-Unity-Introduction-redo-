@@ -8,6 +8,8 @@ public class Player_Collisoion : MonoBehaviour
         {
 
           movement.enabled = false;
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
+
 }

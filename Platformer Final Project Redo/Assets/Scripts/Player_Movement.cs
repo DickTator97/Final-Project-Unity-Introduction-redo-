@@ -5,13 +5,14 @@ public class Player_Movement : MonoBehaviour
 
     public Rigidbody rb;
     public float ForceForward;
-    public float ForceSideWays;
+   public float ForceSideWays;
     public bool IsJump;
     private void FixedUpdate()
     {
         // Add A forward force 
         rb.AddForce(0, 0, ForceForward * Time.deltaTime);
 
+       
         if (Input.GetKey("d"))
         {
             //Move Right
