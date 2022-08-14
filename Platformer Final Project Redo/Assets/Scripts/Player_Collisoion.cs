@@ -1,6 +1,4 @@
-
 using UnityEngine;
-
 public class Player_Collisoion : MonoBehaviour
 {
     public Player_Movement movement;

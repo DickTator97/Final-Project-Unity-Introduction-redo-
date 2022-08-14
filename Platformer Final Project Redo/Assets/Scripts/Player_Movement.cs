@@ -6,7 +6,6 @@ public class Player_Movement : MonoBehaviour
     public Rigidbody rb;
     public float ForceForward;
     public float ForceSideWays;
-  
     public bool IsJump;
     private void FixedUpdate()
     {
