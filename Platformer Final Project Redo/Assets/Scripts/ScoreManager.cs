@@ -8,8 +8,6 @@ public class ScoreManager : MonoBehaviour
     //Connecting Between The Transform Of Game Object(player) To Tmpro Component(Via Inspector) 
     public Transform player;
 
-   
-  
     //Variable To Check Player Max Distance
    // Connecting Between Tmpro to U.I To the Script
     public TextMeshProUGUI ScoreText;

@@ -7,13 +7,18 @@ public class GameManager : MonoBehaviour
     public float RestartDelay = 1f;
 
     public GameObject CompleteLevlUI;
+    private void Start()
+    {
+       CompleteLevlUI.SetActive(false); 
+    }
     public void LevelComplete()
     {
         Debug.Log("You Win!");
+        GameWon = true;
         CompleteLevlUI.SetActive(true);
+       
 
     }
-
     public void EndGame()
     {
         if (GameLost == false)
@@ -28,5 +33,4 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 }

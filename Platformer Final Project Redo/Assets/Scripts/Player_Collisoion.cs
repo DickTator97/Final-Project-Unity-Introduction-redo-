@@ -8,16 +8,10 @@ public class Player_Collisoion : MonoBehaviour
         if (CollisionInfo.collider.CompareTag("Obstacle"))
         {
 
-            movement.enabled = false;
+            //movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
         }
-        //// Set Level Win If Hitting FinishLine
-        //if (CollisionInfo.collider.CompareTag("FinishLine"))
-        //{
-        //    FindObjectOfType<GameManager>().LevelComplete();
-        //}
-
 
     }
-
+    
 }

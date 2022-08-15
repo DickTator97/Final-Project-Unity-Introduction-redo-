@@ -5,18 +5,25 @@ public class Player_Movement : MonoBehaviour
 
     public Rigidbody rb;
     public float ForceForward;
-   public float ForceSideWays;
+    public float ForceSideWays;
     public bool IsJump;
+    public GameManager manager;
     private void FixedUpdate()
     {
+        if (manager.GameWon)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            return;
+        }
         // Add A forward force 
         rb.AddForce(0, 0, ForceForward * Time.deltaTime);
 
-       
+
         if (Input.GetKey("d"))
         {
             //Move Right
-            rb.AddForce(ForceSideWays * Time.deltaTime, 0, 0,ForceMode.VelocityChange);
+            rb.AddForce(ForceSideWays * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
             Debug.Log("Is Moving Right");
 
@@ -30,7 +37,7 @@ public class Player_Movement : MonoBehaviour
             Debug.Log("Is Moving Left");
 
         }
-        if (rb.position.y<-1f)
+        if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
