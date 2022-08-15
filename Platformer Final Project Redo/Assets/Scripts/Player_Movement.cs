@@ -30,7 +30,10 @@ public class Player_Movement : MonoBehaviour
             Debug.Log("Is Moving Left");
 
         }
-
+        if (rb.position.y<-1f)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
         // ADD Jumping
         // Making Sure Player Can Only Jump Once And Not Jump Again While Airborne
     }
