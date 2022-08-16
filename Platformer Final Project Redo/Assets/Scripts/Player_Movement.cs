@@ -30,7 +30,7 @@ public class Player_Movement : MonoBehaviour
         rb.AddForce(0, 0, ForceForward * Time.deltaTime);
 
         //Steer Right
-        if (Input.GetKey("d"))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.AddForce(ForceSideWays * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
@@ -39,7 +39,7 @@ public class Player_Movement : MonoBehaviour
 
         }
         //Steer Left
-        if (Input.GetKey("a"))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.AddForce(-ForceSideWays * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
