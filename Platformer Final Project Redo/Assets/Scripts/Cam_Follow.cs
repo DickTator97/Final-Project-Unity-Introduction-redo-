@@ -1,5 +1,5 @@
 using UnityEngine;
-//new project Script
+
 public class Cam_Follow : MonoBehaviour
 {
 

@@ -14,9 +14,8 @@ public class Player_Movement : MonoBehaviour
 
         if (ForceForward > 0)
         {
-            Debug.Log("Forward Force is equal to:"+ ForceForward);
+            Debug.Log("Forward Force is equal to:" + ForceForward);
         }
-
 
     }
     private void FixedUpdate()
@@ -29,32 +28,24 @@ public class Player_Movement : MonoBehaviour
         }
         // Add A forward force 
         rb.AddForce(0, 0, ForceForward * Time.deltaTime);
-        
-       
-        
-       
 
-            //Steer Right
+        //Steer Right
         if (Input.GetKey("d"))
         {
             rb.AddForce(ForceSideWays * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
-            Debug.Log("Steering Right");
-           
-            
+            Debug.Log("is Steering Right");
+
 
         }
-
-            //Steer Left
+        //Steer Left
         if (Input.GetKey("a"))
         {
             rb.AddForce(-ForceSideWays * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
-            Debug.Log("Steering Left" );
-            
-        }
-        
+            Debug.Log("is Steering Left");
 
+        }
 
         if (rb.position.y < -1f)
         {
@@ -64,42 +55,3 @@ public class Player_Movement : MonoBehaviour
         // Making Sure Player Can Only Jump Once And Not Jump Again While Airborne
     }
 }
-
-
-//private void Update()
-//{
-//    // player movement
-//    horizontal = Input.GetAxis("Horizontal");
-//    vertical = Input.GetAxis("Vertical");
-
-//    //jumping
-//    if (Input.GetButtonDown("Jump") && M_GroundCheck.IsGrounded == true)
-//    {
-//        IsJump = true;
-//        //jumpsound.Play();
-//        Debug.Log("Is Jumping");
-//    }
-
-//    // fix Jump to not work while in air
-
-//    if (horizontal != 0 || vertical != 0)
-//    {
-//        RotateTowards = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-
-//        transform.forward = Vector3.MoveTowards(transform.forward, RotateTowards, Time.deltaTime * 50);
-
-//        Debug.Log("Is Moving");
-//    }
-
-//}
-// // player jumping
-//Velocity = new Vector3(horizontal * velocityMultiplier, rb.velocity.y, vertical * velocityMultiplier);
-
-//if (IsJump)
-//{
-//    Velocity.y += JumpForce;
-
-//    IsJump = false;
-
-//}
-//rb.velocity = Velocity;
