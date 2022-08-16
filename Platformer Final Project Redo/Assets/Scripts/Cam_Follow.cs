@@ -10,5 +10,4 @@ public class Cam_Follow : MonoBehaviour
         transform.position = player.position+offset;
     }
 
-   
 }
