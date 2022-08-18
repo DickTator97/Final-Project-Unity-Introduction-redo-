@@ -6,17 +6,17 @@ public class GameManager : MonoBehaviour
     public bool GameWon = false;
     public float RestartDelay = 1f;
 
-    public GameObject LvlCompleteScreen;
+    public GameObject LVLCompleteScreen;
     private void Start()
     {
-       LvlCompleteScreen.SetActive(false); 
+       LVLCompleteScreen.SetActive(false); 
     }
     
     public void LevelComplete()
     {
         Debug.Log("You Win!");
         GameWon = true;
-        LvlCompleteScreen.SetActive(true);
+        LVLCompleteScreen.SetActive(true);
        
 
     }

@@ -2,21 +2,17 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-
     public Rigidbody rb;
     public float ForceForward;
     public float ForceSideWays;
     public GameManager manager;
-
-
-    public void Start()
+    private void Start()
     {
 
         if (ForceForward > 0)
         {
             Debug.Log("Forward Force is equal to:" + ForceForward);
         }
-
     }
     private void FixedUpdate()
     {
