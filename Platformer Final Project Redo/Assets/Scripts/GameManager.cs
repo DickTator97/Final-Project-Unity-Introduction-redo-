@@ -9,17 +9,18 @@ public class GameManager : MonoBehaviour
     public GameObject LVLCompleteScreen;
     private void Start()
     {
-       LVLCompleteScreen.SetActive(false); 
+        LVLCompleteScreen.SetActive(false);
     }
-    
+
     public void LevelComplete()
     {
         Debug.Log("You Win!");
         GameWon = true;
         LVLCompleteScreen.SetActive(true);
-       
+
 
     }
+  //3.Go To "EndGame"
     public void EndGame()
     {
         if (GameLost == false)
@@ -27,9 +28,12 @@ public class GameManager : MonoBehaviour
             GameLost = true;
             Debug.Log("Game Over!");
             Invoke("RestartGame", RestartDelay);
+           
+            
         }
+
     }
-   
+
     // Restarts The Level After The Game Is Lost(Can Be used For Win As well)
     private void RestartGame()
     {

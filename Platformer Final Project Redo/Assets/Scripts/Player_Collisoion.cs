@@ -5,13 +5,27 @@ public class Player_Collisoion : MonoBehaviour
     private void OnCollisionEnter(Collision CollisionInfo)
     {
         //Set Level Failure\Reloading For Hitting An Obstacle
+
+        // 1.Player Enter an obstacle 
         if (CollisionInfo.collider.CompareTag("Obstacle"))
         {
-
+           
             //movement.enabled = false;
+            Debug.Log("Is Crashing");
+            //2. goes to "GameManager" Script
             FindObjectOfType<GameManager>().EndGame();
         }
+       
+        // checking weather colliding with an object while steering make the player clip through the floor 
+        //if (movement.ForceSideWays != 0)
+        //{
+        //    while (CollisionInfo.collider.CompareTag("Obstacle") == true)
+        //    {
 
+        //        //movement.rb.y = 0;
+        //    }
+
+        //}
     }
-    
+
 }

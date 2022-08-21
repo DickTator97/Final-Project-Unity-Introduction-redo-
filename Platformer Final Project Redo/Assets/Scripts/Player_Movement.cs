@@ -43,8 +43,10 @@ public class Player_Movement : MonoBehaviour
 
         }
 
+       
         if (rb.position.y < -1f)
         {
+            Debug.Log("Is Falling : GAME OVER!");
             FindObjectOfType<GameManager>().EndGame();
         }
         // ADD Jumping
