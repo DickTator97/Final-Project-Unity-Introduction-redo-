@@ -15,17 +15,7 @@ public class Player_Collisoion : MonoBehaviour
             //2. goes to "GameManager" Script
             FindObjectOfType<GameManager>().EndGame();
         }
-       
-        // checking weather colliding with an object while steering make the player clip through the floor 
-        //if (movement.ForceSideWays != 0)
-        //{
-        //    while (CollisionInfo.collider.CompareTag("Obstacle") == true)
-        //    {
-
-        //        //movement.rb.y = 0;
-        //    }
-
-        //}
+        
     }
 
 }
