@@ -3,7 +3,12 @@ guid: a680ec2ca8df60a4f9a73d51f3f71f9c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - LVLCompleteScreen: {fileID: 6664306742605792603, guid: 79bae9cab2ff9434db61c1c238d7fa41,
+      type: 3}
+  - PauseMenuCanvas: {fileID: 7033131400230769217, guid: d4668485563281b4789732309d2eb299,
+      type: 3}
+  - ContinueButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

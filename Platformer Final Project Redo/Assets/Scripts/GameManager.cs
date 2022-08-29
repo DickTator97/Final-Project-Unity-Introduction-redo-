@@ -8,17 +8,18 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused;
     public GameObject LVLCompleteScreen;
     public GameObject PauseMenuCanvas;
-    public GameObject ContinueButton;
+    public MainMenu PauseMenu;
+    //public GameObject ContinueButton;
     private void Start()
     {
         LVLCompleteScreen.SetActive(false);
-          PauseMenuCanvas.SetActive(false);
+        PauseMenuCanvas.SetActive(false);
     }
     public void Update()
     {
 
         PauseScreen();
-       
+
 
     }
 
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Is Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ContinueGame();
     }
 
     public void PauseScreen()
@@ -73,25 +75,29 @@ public class GameManager : MonoBehaviour
         {
             PauseMenuCanvas.SetActive(false);
         }
-    
+
     }
 
-    public void OnMouseDown()
-    {
-        //Switch case;
-         //case 1 : continue game 
-         //case 2 : restart game 
-         //case 3 : got to options menu
-         //case 4 : back to main menu
-         //case 5 : quit app 
-    }
-
-   
     public void ContinueGame()
     {
         Time.timeScale = 1;
         IsPaused = false;
-        RestartGame();
+
+    }
+
+    public void GoToOptions()
+    {
+        //
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void Exit()
+    {
+
+        PauseMenu.QuitGame();
     }
 
 
