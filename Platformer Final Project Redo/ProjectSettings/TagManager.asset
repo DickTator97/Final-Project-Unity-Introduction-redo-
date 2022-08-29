@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Score_Text_UI
+  - Ground
+  - FinishLine
+  - Obstacle
+  - LevelWon
+  - Pause Menu
   layers:
   - Default
   - TransparentFX
