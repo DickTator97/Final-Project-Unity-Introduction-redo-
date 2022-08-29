@@ -49,3 +49,5 @@ MonoBehaviour:
   RestartDelay: 1
   LVLCompleteScreen: {fileID: 306215443827124438, guid: c8c18f875633d66478a1f01189e00864,
     type: 3}
+  PauseMenuCanvas: {fileID: 0}
+  ContinueButton: {fileID: 0}

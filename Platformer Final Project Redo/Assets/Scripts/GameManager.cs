@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused;
     public GameObject LVLCompleteScreen;
     public GameObject PauseMenuCanvas;
-   
+    public GameObject ContinueButton;
     private void Start()
     {
         LVLCompleteScreen.SetActive(false);
@@ -17,40 +17,10 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
 
-        // Unfinished
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!IsPaused)
-            {
-                Time.timeScale = 0;
-                IsPaused = true;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                IsPaused = false;
-            }
-            
-        }
-         if (IsPaused)
-        {
-            PauseMenuCanvas.SetActive(true);
-
-        } else
-        {
-            PauseMenuCanvas.SetActive(false);
-        }
-
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    while (PauseMenuCanvas==true)
-        //    {
-        //        PauseMenuCanvas.SetActive(false);
-        //    }
-        //}
+        PauseScreen();
+       
 
     }
-
 
     public void LevelComplete()
     {
@@ -79,6 +49,51 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void PauseScreen()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!IsPaused)
+            {
+                Time.timeScale = 0;
+                IsPaused = true;
+            }
+            else
+            {
+                ContinueGame();
+            }
+
+        }
+        if (IsPaused)
+        {
+            PauseMenuCanvas.SetActive(true);
+
+        }
+        else
+        {
+            PauseMenuCanvas.SetActive(false);
+        }
     
+    }
+
+    public void OnMouseDown()
+    {
+        //Switch case;
+         //case 1 : continue game 
+         //case 2 : restart game 
+         //case 3 : got to options menu
+         //case 4 : back to main menu
+         //case 5 : quit app 
+    }
+
+   
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+        IsPaused = false;
+        RestartGame();
+    }
+
 
 }
+
