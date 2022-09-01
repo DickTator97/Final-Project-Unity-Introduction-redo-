@@ -6,14 +6,19 @@ public class Player_Collisoion : MonoBehaviour
     {
         //Set Level Failure\Reloading For Hitting An Obstacle
 
-        // 1.Player Enter an obstacle 
+       
         if (CollisionInfo.collider.CompareTag("Obstacle"))
         {
            
-            //movement.enabled = false;
+            movement.enabled = false;
             Debug.Log("Is Crashing");
-            //2. goes to "GameManager" Script
+            
+            //if ((movement.ForceForward == 0)&& (movement.ForceSideWays==0) )
+            //{
+            //    // position on y axis should stay the same while player on road
+            //}
             FindObjectOfType<GameManager>().EndGame();
+
         }
         
     }

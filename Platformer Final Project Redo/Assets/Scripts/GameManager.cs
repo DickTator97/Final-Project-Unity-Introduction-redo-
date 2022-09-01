@@ -6,20 +6,24 @@ public class GameManager : MonoBehaviour
     public bool GameWon = false;
     public float RestartDelay = 1f;
     public static bool IsPaused;
-    public GameObject LVLCompleteScreen;
-    public GameObject PauseMenuCanvas;
-    public MainMenu PauseMenu;
-    //public GameObject ContinueButton;
+    public GameObject LVLCompScreen;
+    public GameObject PauseMenu;
+    //public MainMenu pauseMenu; 
     private void Start()
     {
-        LVLCompleteScreen.SetActive(false);
-        PauseMenuCanvas.SetActive(false);
+        LVLCompScreen.SetActive(false);
+        
+        PauseMenu.SetActive(false);
+    }
+    private void OnEnable()
+    {
+        ContinueGame();
+
     }
     public void Update()
     {
 
         PauseScreen();
-
 
     }
 
@@ -27,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("You Win!");
         GameWon = true;
-        LVLCompleteScreen.SetActive(true);
+        LVLCompScreen.SetActive(true);
 
     }
     public void EndGame()
@@ -36,14 +40,13 @@ public class GameManager : MonoBehaviour
         {
             GameLost = true;
             Debug.Log("Game Over!");
-            // Add a Game Over Screen+ Restart Button+ Stop Player Movement
+           
             Invoke("RestartGame", RestartDelay);
 
         }
-
     }
 
-    // Restarts The Level After The Game Is Lost(Can Be used For Win As well)
+    // Restarts The Level 
     public void RestartGame()
     {
         Debug.Log("Is Restart");
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseScreen()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (!IsPaused)
             {
@@ -64,18 +67,17 @@ public class GameManager : MonoBehaviour
             {
                 ContinueGame();
             }
-
+           
         }
         if (IsPaused)
         {
-            PauseMenuCanvas.SetActive(true);
+            PauseMenu.SetActive(true);
 
         }
         else
         {
-            PauseMenuCanvas.SetActive(false);
+            PauseMenu.SetActive(false);
         }
-
     }
 
     public void ContinueGame()
@@ -85,21 +87,31 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GoToOptions()
-    {
-        //
-    }
+    //public void GoToOptions()
+    //{
+    //    //
+    //}
 
-    public void ReturnToMainMenu()
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+       
+
     }
-    public void Exit()
+    public void IsBack()
     {
-
-        PauseMenu.QuitGame();
+        if (gameObject==true)
+        {
+            PauseMenu.SetActive(false);
+            Debug.Log(" Pause Menu Is now False");
+        }
     }
-
+   
+    //public void Exit()
+    //{
+    //    //
+    //    PauseMenu.QuitGame();
+    //}
 
 }
 

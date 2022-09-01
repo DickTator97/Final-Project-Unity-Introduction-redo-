@@ -31,8 +31,6 @@ public class Player_Movement : MonoBehaviour
             rb.AddForce(ForceSideWays * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
             Debug.Log("is Steering Right");
-
-
         }
         //Steer Left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -42,15 +40,10 @@ public class Player_Movement : MonoBehaviour
             Debug.Log("is Steering Left");
 
         }
-
-       
         if (rb.position.y < -1f)
         {
             Debug.Log("Is Falling : GAME OVER!");
             FindObjectOfType<GameManager>().EndGame();
         }
-
-        
-
     }
 }
