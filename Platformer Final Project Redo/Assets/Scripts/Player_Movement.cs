@@ -11,7 +11,7 @@ public class Player_Movement : MonoBehaviour
 
         if (ForceForward > 0)
         {
-            Debug.Log("Forward Force is equal to:" + ForceForward);
+            Debug.Log("Fwrd Force =:" + ForceForward);
         }
     }
     private void FixedUpdate()

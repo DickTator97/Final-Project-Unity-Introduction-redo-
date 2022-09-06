@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LVLCompScreen.SetActive(false);
+
         
-        PauseMenu.SetActive(false);
     }
     private void OnEnable()
     {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("You Win!");
         GameWon = true;
         LVLCompScreen.SetActive(true);
-
+        PauseMenu.SetActive(false);
     }
     public void EndGame()
     {
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             GameLost = true;
             Debug.Log("Game Over!");
-           
+
             Invoke("RestartGame", RestartDelay);
 
         }
@@ -56,28 +56,34 @@ public class GameManager : MonoBehaviour
 
     public void PauseScreen()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+
+        if (GameWon==false)
         {
-            if (!IsPaused)
+
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
-                Time.timeScale = 0;
-                IsPaused = true;
+                if (!IsPaused)
+                {
+                    Time.timeScale = 0;
+                    IsPaused = true;
+                }
+                else
+                {
+                    ContinueGame();
+                }
+
+            }
+            if (IsPaused)
+            {
+                PauseMenu.SetActive(true);
+
             }
             else
             {
-                ContinueGame();
+                PauseMenu.SetActive(false);
             }
-           
-        }
-        if (IsPaused)
-        {
-            PauseMenu.SetActive(true);
-
-        }
-        else
-        {
-            PauseMenu.SetActive(false);
-        }
+        } 
+            
     }
 
     public void ContinueGame()
@@ -87,31 +93,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //public void GoToOptions()
-    //{
-    //    //
-    //}
 
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-       
+
 
     }
     public void IsBack()
     {
-        if (gameObject==true)
+        if (gameObject == true)
         {
             PauseMenu.SetActive(false);
             Debug.Log(" Pause Menu Is now False");
         }
     }
-   
-    //public void Exit()
-    //{
-    //    //
-    //    PauseMenu.QuitGame();
-    //}
 
 }
 
