@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused;
     public GameObject LVLCompScreen;
     public GameObject PauseMenu;
+    public GameObject MenusManeger;
     //public MainMenu pauseMenu; 
     private void Start()
     {
         LVLCompScreen.SetActive(false);
-
+        MenusManeger.SetActive(false);
         
     }
     private void OnEnable()
